@@ -1,0 +1,11 @@
+# Disable IE Enhanced Security Configuration
+
+- name: "Edit registry to disable Internet Explorer Enhanced Security Config..."
+  win_regedit:
+    path: "{{ item }}"
+    name: IsInstalled
+    data: 0
+  with_items:
+    - "HKLM:\\SOFTWARE\\Microsoft\\Active Setup\\Installed Components\\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}"
+    - "HKLM:\\SOFTWARE\\Microsoft\\Active Setup\\Installed Components\\{A509B1A8-37EF-4b3f-8CFC-4F3A74704073}"
+  #notify: restart explorer

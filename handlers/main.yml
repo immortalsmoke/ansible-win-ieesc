@@ -1,0 +1,2 @@
+- name: restart explorer
+  win_shell: "Stop-Process -ProcessName explorer -Force"
